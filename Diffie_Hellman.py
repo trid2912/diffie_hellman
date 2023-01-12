@@ -29,6 +29,13 @@ class Diffie_Hellman(object):
         bin_text = np.array([[int(j) for j in '{0:05b}'.format((ord(i)-ord('A'))%32)] for i in text]).T
 
         return bin_text
+    
+    def CharConvertAscii(text):                # nhỡ người dùng có nhập chữ, không thì bỏ đi cho hiện TypeError cũng được
+        text = input()
+        nchars = len(text)
+        output = sum(ord(text[byte])<<8*(nchars-byte-1) for byte in range(nchars)) # string to int or long. Type depends on nchars
+        ''.join(chr((output>>8*(nchars-byte-1))&0xFF) for byte in range(nchars)) # int or long to string
+        return output
 
     def encrypt(self, plain):
         ''' Encrypt plain text with shared key (encrypted key) '''
