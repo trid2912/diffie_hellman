@@ -15,6 +15,7 @@ class Diffie_Hellman_RSA(object):
 
         self.__pri_key = pri_key
         self.__p, self.__q, self.X, self.g = p, q, X, g
+        self.__G = X-1 #number of smaller co-prime numbers of X
 
         self.__n = self.__p * self.__q
         self.__phi = (self.__p - 1) * (self.__q - 1)
@@ -27,9 +28,9 @@ class Diffie_Hellman_RSA(object):
     def send_key(self):
         ''' Send key to other side '''
 
-        self.alpha = self.g**self.__pri_key % self.X
+        self.alpha = self.g**self.__pri_key % self.X #public key
 
-        self.key = self.alpha ** self.__e % self.__n
+        self.key = self.alpha ** self.__e % self.__n #encrypted public key
 
         return self.key
 
@@ -37,18 +38,19 @@ class Diffie_Hellman_RSA(object):
         ''' Take the key sent from the other side and set up a encrypted key '''
         self.received_key = received_key
 
-        self.alpha = self.received_key ** self.__d % self.__n
+        self.alpha = self.received_key ** self.__d % self.__n #public key
 
-        self.__encrypt_key = self.alpha ** self.__pri_key % self.X # = g^(ab) % X
+        self.__encrypt_key = self.alpha ** self.__pri_key % self.X                   # = g^(ab) % X
+        self.__decrypt_key = (self.alpha ** (self.__G - self.__pri_key)) % self.X    # ig_ab = g_a^(|G| - b) mod p
 
-    def encrypt(self, plain):
+    def encrypt_by_merkel_hellman(self, plain):
         ''' Encrypt plain text with shared key (encrypted key) '''
         self.plain = plain
         self.cipher = self.plain*self.__encrypt_key % self.pub_key[0]
 
         return self.cipher
 
-    def decrypt(self, cipher):
+    def decrypt_by_merkel_hellman(self, cipher):
         ''' Decrypt cipher text with inverse of shared key (decrypted key) '''
         self.cipher = cipher
         self.plain = self.cipher*self.__decrypt_key % self.pub_key[0]
@@ -83,18 +85,12 @@ class Diffie_Hellman_RSA(object):
 
         return gcd, x, y
 
-    def get_encrypt_key(self):
-        return self.__encrypt_key
-
 #Test
 
-p, q, X, g = 13, 11, 23, 9
+p, q, X, g = 13, 17, 23, 11
 
 Alice = Diffie_Hellman_RSA(p=p, q=q, X=X, g=g, pri_key=4, e=13)
 Bob = Diffie_Hellman_RSA(p=p, q=q, X=X, g=g, pri_key=3, e=13)
 
 Bob.get_key(Alice.send_key())
 Alice.get_key(Bob.send_key())
-
-print(Bob.get_encrypt_key())
-print(Alice.get_encrypt_key())
