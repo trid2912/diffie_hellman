@@ -41,7 +41,7 @@ def isprime(n):
                 return False
     return True
 
-def countPrimitiveRootsAvailable(P):
+def countPrimitiveRootsAvailable(P):    #number of relatively prime in range(2,P)
     result = 1
     for i in range(2, P, 1):
         if (gcd(i, P) == 1):
@@ -81,15 +81,16 @@ def checkPrimitiveRoot(P,G):
 def main():
     checkInt(P)
     checkInt(G)
-    isprime(P)
-    isprime(G)
-    checkPrimitiveRoot(P,G)
+    isprime(int(P))
+    isprime(int(G))
+    checkPrimitiveRoot(int(P),int(G))
+    
 
 if __name__ == '__main__':
     main()
     #P = 23
     #G = 9
-    print('The Value of Public keys are :%d, %d'%(P)%(G))
+    print("The Value of Public keys are :%d, %d" %(15) %(20))
      
     # Alice will choose the private key a
     # a = 4
