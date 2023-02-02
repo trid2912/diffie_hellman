@@ -3,7 +3,6 @@ from other_func.Key_generator import generate
 import time
 
 print('Initiation:')
-time.sleep(2)
 p = int(input("Enter a prime number p: "))
 q = int(input("Enter a prime number q: "))
 X = int(input("Enter a prime number X: "))
@@ -15,16 +14,16 @@ input()
 
 print('-'*100)
 print('Public and Private key Generation:\n')
-time.sleep(3)
+input()
 
 print(f"n = p * q = {p*q}\n")
-time.sleep(2)
+input()
 phi = (p-1)*(q-1)
 print(f"phi(n) = (p - 1)(q - 1) = {phi}\n")
-time.sleep(2)
+input()
 
 e = generate([2, phi], coprime=phi)
-e=79
+e=13
 print(f"1. Alice and Bob have agreed upon the value of e = {e}")
 input()
 
@@ -55,9 +54,8 @@ input()
 print("7. EXCHANGE OF KEYS period")
 input()
 
-
 print(f"(a).Public key of Alice has been encrypted as {A_send_key}\n")
-time.sleep(3)
+input()
 
 print(f"(b).Public key of Bob has been encrypted as {B_send_key}\n")
 input()
@@ -65,11 +63,11 @@ input()
 print("8. After Decryption:")
 input()
 Alice.get_key(B_send_key)
-print(f"(a).Alice has decrypted public key sent from {Alice.get_beta()} from Bob\n")
-time.sleep(2)
+print(f"(a).Alice has decrypted public key sent from Bob: {Alice.get_beta()}\n")
+input()
 
 Bob.get_key(A_send_key)
-print(f"(b).Bob has has decrypted public key sent from {Bob.get_beta()} from Alice\n")
+print(f"(b).Bob has has decrypted public key sent from Alice: {Bob.get_beta()}\n")
 print('-'*100)
 input()
 
@@ -77,7 +75,7 @@ print("9.SHARED-SECRET-KEY CALCULATION: GOAL OF DH KEY EXCHANGE")
 input()
 
 print(f"(a).Alice has computed shared secret key k1 = {Alice.get_encryptKey()}\n")
-time.sleep(2)
+input()
 print(f"(b).Bob has computed shared secret key k2 = {Bob.get_encryptKey()}\n")
 
 print(f"Shared secret key K = {Alice.get_encryptKey()}")
