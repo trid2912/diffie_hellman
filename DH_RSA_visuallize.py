@@ -1,4 +1,4 @@
-from DH_integrated_RSA import *
+from KeyExchange.DH_integrated_RSA import *
 import time
 
 print('Initiation:')
