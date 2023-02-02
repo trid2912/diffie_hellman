@@ -1,12 +1,15 @@
 from KeyExchange.Diffie_Hellman import *
+from other_func.Key_generator import *
 import time
 
 
 # Original Diffie Hellman
 print('-'*100)
 print('Initiation:')
-time.sleep(2)
-pub_key = (23, 5, 22)
+p = int(input("Enter a prime number p (23): "))
+g = int(input("Enter a generator number g (5): "))
+
+pub_key = (p, g, p-1)
 print(f"Alice and Bob have agreed on a set of public keys {pub_key}\n")
 print("-"*100)
 input()
@@ -33,8 +36,8 @@ print('Alice is sending her public key to Bob')
 print('. . .\n')
 time.sleep(4)
 
-Bob.get_key(Alice_pub_key)
-print("Bob has received Alice's key\n")
+B_key = Bob.get_key(Alice_pub_key)
+print(f"Bob has received Alice's key: {B_key}\n")
 print('-'*50)
 input()
 
@@ -45,8 +48,8 @@ print('Bob is sending his public key to Alice')
 print('. . .\n')
 time.sleep(4)
 
-Alice.get_key(Bob_pub_key)
-print("Alice has received Bob's key\n")
+A_key = Alice.get_key(Bob_pub_key)
+print(f"Alice has received Bob's key: {A_key}\n")
 time.sleep(2)
 print('-'*100)
 input()

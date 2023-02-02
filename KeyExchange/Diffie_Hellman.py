@@ -24,6 +24,8 @@ class Diffie_Hellman(object):
         self.received_key = received_key
         self.__encrypt_key = self.received_key**self.__pri_key % self.n                   # g_ab = (g_a)^b mod p
         self.__decrypt_key = (self.received_key**(self.G - self.__pri_key)) % self.n    # ig_ab = g_a^(|G| - b) mod p
+        
+        return(self.__decrypt_key)
 
     def encrypt(self, plain):
         ''' Encrypt plain text with shared key (encrypted key) '''
