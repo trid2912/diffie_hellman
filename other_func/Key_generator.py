@@ -1,9 +1,14 @@
 import random as rd
-from Check_key import isPrime
+from other_func.Check_key import isPrime, gcd
 
-def generate(ranges=[], prime=False):
+def generate(ranges=[], prime=False, coprime=False):
     if prime:
-        primes = [i for i in range(*ranges) if isPrime(i)]
-        n = rd.choice(primes)
+        interval = [i for i in range(*ranges) if isPrime(i)]
+        n = rd.choice(interval)
+        return n
+    elif coprime:
+        interval = [i for i in range(*ranges) if (gcd(i, coprime)==1)]
+        n = rd.choice(interval)
+        return n 
     else:
         return rd.randrange(*ranges)
