@@ -23,7 +23,6 @@ print(f"phi(n) = (p - 1)(q - 1) = {phi}\n")
 input()
 
 e = generate([2, phi], coprime=phi)
-e=13
 print(f"1. Alice and Bob have agreed upon the value of e = {e}")
 input()
 
