@@ -24,7 +24,8 @@ class Diffie_Hellman_RSA(object):
         self.__e = e
 
         _, self.__d, _ = self.gcdExtended(self.__e, self.__phi) # d = e^-1 (mod phi(n))
-        self.__d = abs(self.__d)
+        if self.__d < 0:
+            self.__d += self.__phi
 
     def send_key(self):
         ''' Send key to other side '''
