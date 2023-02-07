@@ -30,7 +30,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Diffie-Hellman Integrated RSA</string>
+     <string>Man-in-the-middle Attack</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -40,7 +40,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>140</y>
+      <y>100</y>
       <width>141</width>
       <height>141</height>
      </rect>
@@ -59,7 +59,7 @@
     <property name="geometry">
      <rect>
       <x>620</x>
-      <y>140</y>
+      <y>100</y>
       <width>141</width>
       <height>141</height>
      </rect>
@@ -78,7 +78,7 @@
     <property name="geometry">
      <rect>
       <x>150</x>
-      <y>230</y>
+      <y>190</y>
       <width>41</width>
       <height>41</height>
      </rect>
@@ -97,7 +97,7 @@
     <property name="geometry">
      <rect>
       <x>70</x>
-      <y>120</y>
+      <y>80</y>
       <width>49</width>
       <height>16</height>
      </rect>
@@ -118,7 +118,7 @@
     <property name="geometry">
      <rect>
       <x>660</x>
-      <y>120</y>
+      <y>80</y>
       <width>49</width>
       <height>16</height>
      </rect>
@@ -139,7 +139,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>290</y>
+      <y>250</y>
       <width>160</width>
       <height>31</height>
      </rect>
@@ -161,7 +161,7 @@
     <property name="geometry">
      <rect>
       <x>610</x>
-      <y>290</y>
+      <y>250</y>
       <width>160</width>
       <height>31</height>
      </rect>
@@ -183,7 +183,7 @@
     <property name="geometry">
      <rect>
       <x>310</x>
-      <y>350</y>
+      <y>320</y>
       <width>201</width>
       <height>91</height>
      </rect>
@@ -228,7 +228,7 @@
     <property name="geometry">
      <rect>
       <x>340</x>
-      <y>140</y>
+      <y>100</y>
       <width>131</width>
       <height>141</height>
      </rect>
@@ -247,7 +247,7 @@
     <property name="geometry">
      <rect>
       <x>380</x>
-      <y>120</y>
+      <y>80</y>
       <width>49</width>
       <height>16</height>
      </rect>
@@ -267,9 +267,9 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>370</x>
-      <y>460</y>
-      <width>91</width>
+      <x>340</x>
+      <y>430</y>
+      <width>141</width>
       <height>41</height>
      </rect>
     </property>
@@ -280,9 +280,9 @@
    <widget class="QLineEdit" name="E_A_PKey_input">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>130</y>
-      <width>68</width>
+      <x>297</x>
+      <y>90</y>
+      <width>51</width>
       <height>22</height>
      </rect>
     </property>
@@ -290,22 +290,22 @@
    <widget class="QLabel" name="E_A_PKey_label">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>130</y>
-      <width>86</width>
+      <x>170</x>
+      <y>90</y>
+      <width>121</width>
       <height>22</height>
      </rect>
     </property>
     <property name="text">
-     <string>Private key with Alice:</string>
+     <string>Alice - Eve private key:</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="E_B_PKey_input">
     <property name="geometry">
      <rect>
-      <x>560</x>
-      <y>130</y>
-      <width>71</width>
+      <x>580</x>
+      <y>90</y>
+      <width>51</width>
       <height>22</height>
      </rect>
     </property>
@@ -313,23 +313,23 @@
    <widget class="QLabel" name="E_B_PKey_label">
     <property name="geometry">
      <rect>
-      <x>473</x>
-      <y>130</y>
-      <width>83</width>
+      <x>455</x>
+      <y>90</y>
+      <width>121</width>
       <height>22</height>
      </rect>
     </property>
     <property name="text">
-     <string>Private key with Bob:</string>
+     <string>Bob - Eve private key:</string>
     </property>
    </widget>
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>330</y>
+      <y>310</y>
       <width>201</width>
-      <height>201</height>
+      <height>231</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="logLayout">
@@ -377,7 +377,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>17</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
