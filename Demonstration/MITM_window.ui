@@ -323,6 +323,36 @@
      <string>Private key with Bob:</string>
     </property>
    </widget>
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>330</y>
+      <width>201</width>
+      <height>201</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="logLayout">
+     <item>
+      <widget class="QLabel" name="logLabel">
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Log</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QListWidget" name="Log"/>
+     </item>
+    </layout>
+   </widget>
    <zorder>message_image</zorder>
    <zorder>label</zorder>
    <zorder>Alice_image</zorder>
@@ -339,6 +369,7 @@
    <zorder>E_A_PKey_label</zorder>
    <zorder>E_B_PKey_input</zorder>
    <zorder>E_B_PKey_label</zorder>
+   <zorder>verticalLayoutWidget</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

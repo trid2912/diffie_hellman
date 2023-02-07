@@ -237,6 +237,36 @@
      <string>Start exchange key</string>
     </property>
    </widget>
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>330</y>
+      <width>201</width>
+      <height>201</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="logLayout">
+     <item>
+      <widget class="QLabel" name="logLabel">
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Log</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QListWidget" name="Log"/>
+     </item>
+    </layout>
+   </widget>
    <zorder>message_image</zorder>
    <zorder>label</zorder>
    <zorder>Alice_image</zorder>
@@ -247,6 +277,7 @@
    <zorder>gridLayoutWidget_3</zorder>
    <zorder>groupBox</zorder>
    <zorder>pushButton</zorder>
+   <zorder>verticalLayoutWidget</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
