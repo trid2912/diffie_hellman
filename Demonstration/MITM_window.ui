@@ -141,7 +141,7 @@
       <x>30</x>
       <y>290</y>
       <width>160</width>
-      <height>51</height>
+      <height>31</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="AliceProperties">
@@ -155,16 +155,6 @@
      <item row="0" column="1">
       <widget class="QLineEdit" name="A_PKey_input"/>
      </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="A_number_e">
-       <property name="text">
-        <string>Random number e:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QLineEdit" name="Number_e"/>
-     </item>
     </layout>
    </widget>
    <widget class="QWidget" name="gridLayoutWidget_3">
@@ -173,10 +163,13 @@
       <x>610</x>
       <y>290</y>
       <width>160</width>
-      <height>51</height>
+      <height>31</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="BobProperties">
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="B_PKey_input"/>
+     </item>
      <item row="0" column="0">
       <widget class="QLabel" name="B_PKey_label">
        <property name="text">
@@ -184,28 +177,15 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="1">
-      <widget class="QLineEdit" name="B_PKey_input"/>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="B_number_e">
-       <property name="text">
-        <string>Random number e:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QLineEdit" name="Number_e_2"/>
-     </item>
     </layout>
    </widget>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
       <x>310</x>
-      <y>310</y>
+      <y>350</y>
       <width>201</width>
-      <height>141</height>
+      <height>91</height>
      </rect>
     </property>
     <property name="title">
@@ -217,57 +197,77 @@
        <x>10</x>
        <y>20</y>
        <width>180</width>
-       <height>111</height>
+       <height>61</height>
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout">
-      <item row="1" column="0">
-       <widget class="QLabel" name="Q_label">
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="G_input"/>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="p_label">
         <property name="text">
-         <string>Prime number q:</string>
+         <string>Prime numer p:</string>
         </property>
        </widget>
       </item>
-      <item row="0" column="1">
-       <widget class="QLineEdit" name="P_input"/>
-      </item>
-      <item row="2" column="1">
-       <widget class="QLineEdit" name="X_input"/>
-      </item>
-      <item row="3" column="1">
-       <widget class="QLineEdit" name="G_input"/>
-      </item>
-      <item row="3" column="0">
+      <item row="1" column="0">
        <widget class="QLabel" name="G_label">
         <property name="text">
          <string>Generator number g:</string>
         </property>
        </widget>
       </item>
-      <item row="1" column="1">
-       <widget class="QLineEdit" name="Q_input"/>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="X_label">
-        <property name="text">
-         <string>Prime numer X:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="P_label">
-        <property name="text">
-         <string>Prime number p:</string>
-        </property>
-       </widget>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="p_input"/>
       </item>
      </layout>
     </widget>
    </widget>
+   <widget class="QLabel" name="Eve_label">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>140</y>
+      <width>131</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>Image/hacker.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Eve_name">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>120</y>
+      <width>49</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>15</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Eve</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>360</x>
+      <x>370</x>
       <y>460</y>
       <width>91</width>
       <height>41</height>
@@ -275,6 +275,52 @@
     </property>
     <property name="text">
      <string>Start exchange key</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="E_A_PKey_input">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>130</y>
+      <width>68</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="E_A_PKey_label">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>130</y>
+      <width>86</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Private key with Alice:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="E_B_PKey_input">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>130</y>
+      <width>71</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="E_B_PKey_label">
+    <property name="geometry">
+     <rect>
+      <x>473</x>
+      <y>130</y>
+      <width>83</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Private key with Bob:</string>
     </property>
    </widget>
    <zorder>message_image</zorder>
@@ -286,7 +332,13 @@
    <zorder>gridLayoutWidget_2</zorder>
    <zorder>gridLayoutWidget_3</zorder>
    <zorder>groupBox</zorder>
+   <zorder>Eve_label</zorder>
+   <zorder>Eve_name</zorder>
    <zorder>pushButton</zorder>
+   <zorder>E_A_PKey_input</zorder>
+   <zorder>E_A_PKey_label</zorder>
+   <zorder>E_B_PKey_input</zorder>
+   <zorder>E_B_PKey_label</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
