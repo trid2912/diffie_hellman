@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1271</width>
+    <height>900</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1271</width>
+    <height>900</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -17,7 +23,7 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>70</x>
+      <x>320</x>
       <y>10</y>
       <width>661</width>
       <height>71</height>
@@ -26,6 +32,7 @@
     <property name="font">
      <font>
       <pointsize>20</pointsize>
+      <weight>75</weight>
       <bold>true</bold>
      </font>
     </property>
@@ -58,7 +65,7 @@
    <widget class="QLabel" name="Bob_image">
     <property name="geometry">
      <rect>
-      <x>620</x>
+      <x>1060</x>
       <y>100</y>
       <width>141</width>
       <height>141</height>
@@ -96,10 +103,10 @@
    <widget class="QLabel" name="Alice_name">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>80</y>
-      <width>49</width>
-      <height>16</height>
+      <x>60</x>
+      <y>65</y>
+      <width>71</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -117,10 +124,10 @@
    <widget class="QLabel" name="Bob_name">
     <property name="geometry">
      <rect>
-      <x>660</x>
-      <y>80</y>
+      <x>1100</x>
+      <y>65</y>
       <width>49</width>
-      <height>16</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -160,7 +167,7 @@
    <widget class="QWidget" name="gridLayoutWidget_3">
     <property name="geometry">
      <rect>
-      <x>610</x>
+      <x>1050</x>
       <y>250</y>
       <width>160</width>
       <height>31</height>
@@ -182,8 +189,8 @@
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>320</y>
+      <x>1000</x>
+      <y>350</y>
       <width>201</width>
       <height>91</height>
      </rect>
@@ -196,7 +203,7 @@
       <rect>
        <x>10</x>
        <y>20</y>
-       <width>180</width>
+       <width>193</width>
        <height>61</height>
       </rect>
      </property>
@@ -227,8 +234,8 @@
    <widget class="QLabel" name="Eve_label">
     <property name="geometry">
      <rect>
-      <x>340</x>
-      <y>100</y>
+      <x>610</x>
+      <y>130</y>
       <width>131</width>
       <height>141</height>
      </rect>
@@ -246,10 +253,10 @@
    <widget class="QLabel" name="Eve_name">
     <property name="geometry">
      <rect>
-      <x>380</x>
+      <x>650</x>
       <y>80</y>
       <width>49</width>
-      <height>16</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -267,8 +274,8 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>340</x>
-      <y>430</y>
+      <x>1030</x>
+      <y>480</y>
       <width>141</width>
       <height>41</height>
      </rect>
@@ -277,64 +284,31 @@
      <string>Start exchange key</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="E_A_PKey_input">
+   <widget class="QPushButton" name="backButton">
     <property name="geometry">
      <rect>
-      <x>297</x>
-      <y>90</y>
-      <width>51</width>
-      <height>22</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="E_A_PKey_label">
-    <property name="geometry">
-     <rect>
-      <x>170</x>
-      <y>90</y>
-      <width>121</width>
-      <height>22</height>
+      <x>1030</x>
+      <y>520</y>
+      <width>141</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
-     <string>Alice - Eve private key:</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="E_B_PKey_input">
-    <property name="geometry">
-     <rect>
-      <x>580</x>
-      <y>90</y>
-      <width>51</width>
-      <height>22</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="E_B_PKey_label">
-    <property name="geometry">
-     <rect>
-      <x>455</x>
-      <y>90</y>
-      <width>121</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Bob - Eve private key:</string>
+     <string>Back to main menu</string>
     </property>
    </widget>
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>310</y>
-      <width>201</width>
-      <height>231</height>
+      <y>300</y>
+      <width>911</width>
+      <height>541</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="logLayout">
+    <layout class="QVBoxLayout" name="logLayout_2">
      <item>
-      <widget class="QLabel" name="logLabel">
+      <widget class="QLabel" name="logLabel_2">
        <property name="font">
         <font>
          <pointsize>12</pointsize>
@@ -349,22 +323,15 @@
       </widget>
      </item>
      <item>
-      <widget class="QListWidget" name="Log"/>
+      <widget class="QListWidget" name="MITM_LOG">
+       <property name="font">
+        <font>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+      </widget>
      </item>
     </layout>
-   </widget>
-   <widget class="QPushButton" name="backButton">
-    <property name="geometry">
-     <rect>
-      <x>350</x>
-      <y>490</y>
-      <width>121</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Back to main menu</string>
-    </property>
    </widget>
    <zorder>message_image</zorder>
    <zorder>label</zorder>
@@ -378,20 +345,16 @@
    <zorder>Eve_label</zorder>
    <zorder>Eve_name</zorder>
    <zorder>pushButton</zorder>
-   <zorder>E_A_PKey_input</zorder>
-   <zorder>E_A_PKey_label</zorder>
-   <zorder>E_B_PKey_input</zorder>
-   <zorder>E_B_PKey_label</zorder>
-   <zorder>verticalLayoutWidget</zorder>
    <zorder>backButton</zorder>
+   <zorder>verticalLayoutWidget</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
-     <height>22</height>
+     <width>1271</width>
+     <height>26</height>
     </rect>
    </property>
   </widget>
