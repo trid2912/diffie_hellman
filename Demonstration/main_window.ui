@@ -30,7 +30,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Standard Diffie-Hellman</string>
+     <string>Diffie-Hellman Visualization</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -135,149 +135,43 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QWidget" name="gridLayoutWidget_2">
+   <widget class="QPushButton" name="ChangeWindow1">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>250</y>
-      <width>160</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <layout class="QGridLayout" name="AliceProperties">
-     <item row="0" column="1">
-      <widget class="QLineEdit" name="A_PKey_input"/>
-     </item>
-     <item row="0" column="0">
-      <widget class="QLabel" name="PKey_label">
-       <property name="text">
-        <string>Private key:</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="gridLayoutWidget_3">
-    <property name="geometry">
-     <rect>
-      <x>610</x>
-      <y>250</y>
-      <width>160</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <layout class="QGridLayout" name="BobProperties">
-     <item row="0" column="1">
-      <widget class="QLineEdit" name="B_PKey_input"/>
-     </item>
-     <item row="0" column="0">
-      <widget class="QLabel" name="B_PKey_label">
-       <property name="text">
-        <string>Private key:</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QGroupBox" name="groupBox">
-    <property name="geometry">
-     <rect>
-      <x>310</x>
-      <y>320</y>
-      <width>201</width>
-      <height>91</height>
-     </rect>
-    </property>
-    <property name="title">
-     <string>Public keys</string>
-    </property>
-    <widget class="QWidget" name="gridLayoutWidget">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>20</y>
-       <width>180</width>
-       <height>61</height>
-      </rect>
-     </property>
-     <layout class="QGridLayout" name="gridLayout">
-      <item row="1" column="1">
-       <widget class="QLineEdit" name="G_input"/>
-      </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="p_label">
-        <property name="text">
-         <string>Prime numer p:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="G_label">
-        <property name="text">
-         <string>Generator number g:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QLineEdit" name="p_input"/>
-      </item>
-     </layout>
-    </widget>
-   </widget>
-   <widget class="QPushButton" name="startButton">
-    <property name="geometry">
-     <rect>
-      <x>339</x>
-      <y>430</y>
-      <width>141</width>
-      <height>41</height>
+      <x>40</x>
+      <y>350</y>
+      <width>171</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="text">
-     <string>Start exchange key</string>
+     <string>Standard Diffie-Hellman</string>
     </property>
    </widget>
-   <widget class="QWidget" name="verticalLayoutWidget">
+   <widget class="QPushButton" name="ChangeWindow2">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>310</y>
-      <width>201</width>
-      <height>231</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="logLayout">
-     <item>
-      <widget class="QLabel" name="logLabel">
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Log</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QListWidget" name="Log"/>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QPushButton" name="backButton">
-    <property name="geometry">
-     <rect>
-      <x>350</x>
-      <y>480</y>
-      <width>121</width>
-      <height>41</height>
+      <x>590</x>
+      <y>350</y>
+      <width>171</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="text">
-     <string>Back to main menu</string>
+     <string>Diffie-Hellman Integrated RSA</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ChangeWindow3">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>350</y>
+      <width>171</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Man-in-the-middle Attack</string>
     </property>
    </widget>
    <zorder>message_image</zorder>
@@ -286,12 +180,9 @@
    <zorder>Bob_image</zorder>
    <zorder>Alice_name</zorder>
    <zorder>Bob_name</zorder>
-   <zorder>gridLayoutWidget_2</zorder>
-   <zorder>gridLayoutWidget_3</zorder>
-   <zorder>groupBox</zorder>
-   <zorder>startButton</zorder>
-   <zorder>verticalLayoutWidget</zorder>
-   <zorder>backButton</zorder>
+   <zorder>ChangeWindow1</zorder>
+   <zorder>ChangeWindow2</zorder>
+   <zorder>ChangeWindow3</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

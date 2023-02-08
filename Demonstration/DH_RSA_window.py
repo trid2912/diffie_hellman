@@ -145,6 +145,9 @@ class Ui_MainWindow(object):
         self.Log_2 = QtWidgets.QListWidget(self.verticalLayoutWidget)
         self.Log_2.setObjectName("Log_2")
         self.logLayout_2.addWidget(self.Log_2)
+        self.backButton = QtWidgets.QPushButton(self.centralwidget)
+        self.backButton.setGeometry(QtCore.QRect(620, 470, 121, 41))
+        self.backButton.setObjectName("backButton")
         self.message_image.raise_()
         self.label.raise_()
         self.Alice_image.raise_()
@@ -156,6 +159,7 @@ class Ui_MainWindow(object):
         self.groupBox.raise_()
         self.pushButton.raise_()
         self.verticalLayoutWidget.raise_()
+        self.backButton.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 22))
@@ -185,6 +189,7 @@ class Ui_MainWindow(object):
         self.P_label.setText(_translate("MainWindow", "Prime number p:"))
         self.pushButton.setText(_translate("MainWindow", "Start exchange key"))
         self.logLabel_2.setText(_translate("MainWindow", "Log"))
+        self.backButton.setText(_translate("MainWindow", "Back to main menu"))
 
 
 if __name__ == "__main__":
