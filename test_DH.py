@@ -12,7 +12,7 @@ class MainWindow(QMainWindow):
                                 "barber's chair": None, "waiting room": [], "lock_mutex": None,
                                 "state": "Barbershop open for business...", "addCustom": 1, "window": "visualize"}) :
         super(MainWindow,self).__init__()
-        loadUi("/diffie_hellman/Demonstration/DH_window.ui", self)
+        loadUi("D:/diffie_hellman/Demonstration/DH_window.ui", self)
         self.pushButton.clicked.connect(self.pushClick)
     def pushClick(self):
         pub_key = (int(self.p_input.text()), int(self.G_input.text()))
