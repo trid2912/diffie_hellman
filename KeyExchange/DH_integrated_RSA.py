@@ -24,6 +24,8 @@ class Diffie_Hellman_RSA(object):
         self.__e = e
 
         _, self.__d, _ = self.gcdExtended(self.__e, self.__phi) # d = e^-1 (mod phi(n))
+        if self.__d < 0:
+            self.__d += self.__phi
 
     def send_key(self):
         ''' Send key to other side '''
@@ -38,10 +40,22 @@ class Diffie_Hellman_RSA(object):
         ''' Take the key sent from the other side and set up a encrypted key '''
         self.received_key = received_key
 
-        self.alpha = self.received_key ** self.__d % self.__n #public key
+        self.beta = self.received_key ** self.__d % self.__n #public key
 
-        self.__encrypt_key = self.alpha ** self.__pri_key % self.X                   # = g^(ab) % X
-        self.__decrypt_key = (self.alpha ** (self.__G - self.__pri_key)) % self.X    # ig_ab = g_a^(|G| - b) mod p
+        self.__encrypt_key = self.beta ** self.__pri_key % self.X                   # = g^(ab) % X
+        self.__decrypt_key = (self.beta ** (self.__G - self.__pri_key)) % self.X    # ig_ab = g_a^(|G| - b) mod p
+    
+    def get_alpha(self):
+        return self.alpha
+
+    def get_beta(self):
+        return self.beta
+    
+    def get_encryptKey(self):
+        return self.__encrypt_key
+
+    def get_decrypt_public_key(self):
+        return self.__d
 
     def encrypt_by_merkel_hellman(self, plain):
         ''' Encrypt plain text with shared key (encrypted key) '''
@@ -57,21 +71,6 @@ class Diffie_Hellman_RSA(object):
 
         return self.plain
 
-    def convert_to_binary(self, text):
-        bin_text = np.array([[int(j) for j in '{0:05b}'.format((ord(i)-ord('A'))%32)] for i in text]).T
-
-        return bin_text
-
-    def CharConvertAscii(self, s):
-        nchars = len(s)
-        x = sum(ord(s[byte])<<8*(nchars-byte-1) for byte in range(nchars)) # string to int or long. Type depends on nchars
-        return x
-
-    def AsciiConvertChar(self, s):
-
-        x = ''.join(chr((s>>8*(nchars-byte-1))&0xFF) for byte in range(nchars)) # int or long to string
-        return x
-
     def gcdExtended(self, a, b):
         ''' ax + by = 1    =>   x = a^-1 (mod b)'''
         # Base Case
@@ -84,13 +83,3 @@ class Diffie_Hellman_RSA(object):
         y = x1
 
         return gcd, x, y
-
-#Test
-
-p, q, X, g = 13, 17, 23, 11
-
-Alice = Diffie_Hellman_RSA(p=p, q=q, X=X, g=g, pri_key=4, e=13)
-Bob = Diffie_Hellman_RSA(p=p, q=q, X=X, g=g, pri_key=3, e=13)
-
-Bob.get_key(Alice.send_key())
-Alice.get_key(Bob.send_key())
