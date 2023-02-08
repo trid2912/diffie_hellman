@@ -102,9 +102,9 @@ class Ui_MainWindow(object):
         self.p_input = QtWidgets.QLineEdit(self.gridLayoutWidget)
         self.p_input.setObjectName("p_input")
         self.gridLayout.addWidget(self.p_input, 0, 1, 1, 1)
-        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(339, 430, 141, 41))
-        self.pushButton.setObjectName("pushButton")
+        self.startButton = QtWidgets.QPushButton(self.centralwidget)
+        self.startButton.setGeometry(QtCore.QRect(339, 430, 141, 41))
+        self.startButton.setObjectName("startButton")
         self.verticalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
         self.verticalLayoutWidget.setGeometry(QtCore.QRect(30, 310, 201, 231))
         self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
@@ -121,6 +121,9 @@ class Ui_MainWindow(object):
         self.Log = QtWidgets.QListWidget(self.verticalLayoutWidget)
         self.Log.setObjectName("Log")
         self.logLayout.addWidget(self.Log)
+        self.backButton = QtWidgets.QPushButton(self.centralwidget)
+        self.backButton.setGeometry(QtCore.QRect(350, 480, 121, 41))
+        self.backButton.setObjectName("backButton")
         self.message_image.raise_()
         self.label.raise_()
         self.Alice_image.raise_()
@@ -130,8 +133,9 @@ class Ui_MainWindow(object):
         self.gridLayoutWidget_2.raise_()
         self.gridLayoutWidget_3.raise_()
         self.groupBox.raise_()
-        self.pushButton.raise_()
+        self.startButton.raise_()
         self.verticalLayoutWidget.raise_()
+        self.backButton.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 22))
@@ -147,7 +151,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label.setText(_translate("MainWindow", "Diffie-Hellman Integrated RSA"))
+        self.label.setText(_translate("MainWindow", "Standard Diffie-Hellman"))
         self.Alice_name.setText(_translate("MainWindow", "Alice"))
         self.Bob_name.setText(_translate("MainWindow", "Bob"))
         self.PKey_label.setText(_translate("MainWindow", "Private key:"))
@@ -155,8 +159,9 @@ class Ui_MainWindow(object):
         self.groupBox.setTitle(_translate("MainWindow", "Public keys"))
         self.p_label.setText(_translate("MainWindow", "Prime numer p:"))
         self.G_label.setText(_translate("MainWindow", "Generator number g:"))
-        self.pushButton.setText(_translate("MainWindow", "Start exchange key"))
+        self.startButton.setText(_translate("MainWindow", "Start exchange key"))
         self.logLabel.setText(_translate("MainWindow", "Log"))
+        self.backButton.setText(_translate("MainWindow", "Back to main menu"))
 
 
 if __name__ == "__main__":

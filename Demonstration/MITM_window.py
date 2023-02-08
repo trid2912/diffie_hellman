@@ -146,6 +146,9 @@ class Ui_MainWindow(object):
         self.Log = QtWidgets.QListWidget(self.verticalLayoutWidget)
         self.Log.setObjectName("Log")
         self.logLayout.addWidget(self.Log)
+        self.backButton = QtWidgets.QPushButton(self.centralwidget)
+        self.backButton.setGeometry(QtCore.QRect(350, 490, 121, 41))
+        self.backButton.setObjectName("backButton")
         self.message_image.raise_()
         self.label.raise_()
         self.Alice_image.raise_()
@@ -163,6 +166,7 @@ class Ui_MainWindow(object):
         self.E_B_PKey_input.raise_()
         self.E_B_PKey_label.raise_()
         self.verticalLayoutWidget.raise_()
+        self.backButton.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 22))
@@ -191,6 +195,7 @@ class Ui_MainWindow(object):
         self.E_A_PKey_label.setText(_translate("MainWindow", "Alice - Eve private key:"))
         self.E_B_PKey_label.setText(_translate("MainWindow", "Bob - Eve private key:"))
         self.logLabel.setText(_translate("MainWindow", "Log"))
+        self.backButton.setText(_translate("MainWindow", "Back to main menu"))
 
 
 if __name__ == "__main__":
