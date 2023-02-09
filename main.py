@@ -8,6 +8,9 @@ from KeyExchange.Diffie_Hellman import *
 from other_func.Key_generator import *
 import time
 from Attack.MITM import A, B 
+from Attack.bruteForce import calculate
+import time
+from other_func.Check_key import *
 
 
 class MainWindow(QMainWindow):
@@ -17,6 +20,7 @@ class MainWindow(QMainWindow):
             loadUi("D:/diffie_hellman/Demonstration/DH_RSA_window.ui", self)
             self.pushButton.clicked.connect(self.RSAClick)
             self.backButton.clicked.connect(self.back)
+
         elif name == "main":
             loadUi("D:/diffie_hellman/Demonstration/main_window.ui", self)
             self.ChangeWindow1.clicked.connect(self.screen1)
@@ -26,10 +30,55 @@ class MainWindow(QMainWindow):
             loadUi("D:/diffie_hellman/Demonstration/DH_window.ui", self)
             self.startButton.clicked.connect(self.pushClick)
             self.backButton.clicked.connect(self.back)
+
         elif name == "MITM":
             loadUi("D:\diffie_hellman\Demonstration\MITM_window.ui", self)
             self.backButton.clicked.connect(self.back)
             self.pushButton.clicked.connect(self.mitm)
+            self.bruteforce.clicked.connect(self.brute_force)
+
+    def brute_force(self):
+        
+        base = int(self.G_input.text())
+        
+        mod = int(self.p_input.text())
+
+        alice = A(int(self.A_PKey_input.text()), base, mod)
+
+        equal = alice.publish()
+        exponent = 1
+        start = time.time()
+        while True:
+            self.Log.addItem("trying " + str(exponent))
+            result_list = []
+            power_list = []
+            while True:
+                max_power = 0
+                for i in power_list:
+                    max_power += int(i)
+                #print("max_power=" + str(max_power))
+                exponent1 = exponent - max_power
+                if exponent1 > 0:
+                    result, two_power = calculate(exponent1, base, mod)
+                else:
+                    break
+                result_list.append(result)
+                power_list.append(two_power)
+                #print("result_list=" + str(result_list))
+                #print("power_list=" + str(power_list) + "\n")
+
+            result = result_list[0]
+            if len(result_list) == 1:
+                result = result % mod
+            else:
+                for i in range(0, len(result_list) - 1):
+                    result = (result * result_list[i+1]) % mod
+            if result == equal:
+                break
+            exponent += 1
+
+        self.Log.addItem("found e=" + str(exponent))
+        self.Log.addItem("Time taken: " + str(time.time()- start))
     
     def mitm(self):
         p = int(self.p_input.text())
@@ -37,30 +86,30 @@ class MainWindow(QMainWindow):
         alice = A(int(self.A_PKey_input.text()), g, p)
         bob = A(int(self.B_PKey_input.text()), g, p)
         eve = B(g,p)
-        self.MITM_LOG.addItem(f'Alice selected (a) : {alice.n}')
-        self.MITM_LOG.addItem(f'Bob selected (b) : {bob.n}')
-        self.MITM_LOG.addItem(f'Eve selected private number for Alice (c) : {eve.a}')
-        self.MITM_LOG.addItem(f'Eve selected private number for Bob (d) : {eve.b}')
+        self.Log.addItem(f'Alice selected (a) : {alice.n}')
+        self.Log.addItem(f'Bob selected (b) : {bob.n}')
+        self.Log.addItem(f'Eve selected private number for Alice (c) : {eve.a}')
+        self.Log.addItem(f'Eve selected private number for Bob (d) : {eve.b}')
 
         # Generating public values
         ga = alice.publish()
         gb = bob.publish()
         gea = eve.publish(0)
         geb = eve.publish(1)
-        self.MITM_LOG.addItem(f'Alice published (ga): {ga}')
-        self.MITM_LOG.addItem(f'Bob published (gb): {gb}')
-        self.MITM_LOG.addItem(f'Eve published value for Alice (gc): {gea}')
-        self.MITM_LOG.addItem(f'Eve published value for Bob (gd): {geb}')
+        self.Log.addItem(f'Alice published (ga): {ga}')
+        self.Log.addItem(f'Bob published (gb): {gb}')
+        self.Log.addItem(f'Eve published value for Alice (gc): {gea}')
+        self.Log.addItem(f'Eve published value for Bob (gd): {geb}')
 
         # Computing the secret key
         sa = alice.compute_secret(gea)
         sea = eve.compute_secret(ga,0)
         sb = bob.compute_secret(geb)
         seb = eve.compute_secret(gb,1)
-        self.MITM_LOG.addItem(f'Alice computed (S1) : {sa}')
-        self.MITM_LOG.addItem(f'Eve computed key for Alice (S1) : {sea}')
-        self.MITM_LOG.addItem(f'Bob computed (S2) : {sb}')
-        self.MITM_LOG.addItem(f'Eve computed key for Bob (S2) : {seb}')
+        self.Log.addItem(f'Alice computed (S1) : {sa}')
+        self.Log.addItem(f'Eve computed key for Alice (S1) : {sea}')
+        self.Log.addItem(f'Bob computed (S2) : {sb}')
+        self.Log.addItem(f'Eve computed key for Bob (S2) : {seb}')
     def pushClick(self):
         pub_key = (int(self.p_input.text()), int(self.G_input.text()),int(self.p_input.text()) - 1 )
         Alice_pri_key = int(self.A_PKey_input.text())
@@ -133,7 +182,7 @@ class MainWindow(QMainWindow):
         self.Log.addItem(f"phi(n) = (p - 1)(q - 1) = {phi}\n")
         
 
-        e = int(self.Number_e.text())
+        e = generate([2, phi], coprime=phi)
         self.Log.addItem(f"1. Alice and Bob have agreed upon the value of e = {e}")
 
         A_pri_key = int(self.A_PKey_input.text())

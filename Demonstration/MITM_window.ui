@@ -6,13 +6,13 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1271</width>
+    <width>1500</width>
     <height>900</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>1271</width>
+    <width>1500</width>
     <height>900</height>
    </size>
   </property>
@@ -65,7 +65,7 @@
    <widget class="QLabel" name="Bob_image">
     <property name="geometry">
      <rect>
-      <x>1060</x>
+      <x>1150</x>
       <y>100</y>
       <width>141</width>
       <height>141</height>
@@ -124,7 +124,7 @@
    <widget class="QLabel" name="Bob_name">
     <property name="geometry">
      <rect>
-      <x>1100</x>
+      <x>1190</x>
       <y>65</y>
       <width>49</width>
       <height>31</height>
@@ -167,7 +167,7 @@
    <widget class="QWidget" name="gridLayoutWidget_3">
     <property name="geometry">
      <rect>
-      <x>1050</x>
+      <x>1140</x>
       <y>250</y>
       <width>160</width>
       <height>31</height>
@@ -189,7 +189,7 @@
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>1000</x>
+      <x>1260</x>
       <y>350</y>
       <width>201</width>
       <height>91</height>
@@ -203,13 +203,17 @@
       <rect>
        <x>10</x>
        <y>20</y>
-       <width>193</width>
-       <height>61</height>
+       <width>629</width>
+       <height>71</height>
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout">
-      <item row="1" column="1">
-       <widget class="QLineEdit" name="G_input"/>
+      <item row="1" column="0">
+       <widget class="QLabel" name="G_label">
+        <property name="text">
+         <string>Generator number g:</string>
+        </property>
+       </widget>
       </item>
       <item row="0" column="0">
        <widget class="QLabel" name="p_label">
@@ -218,12 +222,8 @@
         </property>
        </widget>
       </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="G_label">
-        <property name="text">
-         <string>Generator number g:</string>
-        </property>
-       </widget>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="G_input"/>
       </item>
       <item row="0" column="1">
        <widget class="QLineEdit" name="p_input"/>
@@ -274,8 +274,8 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>1030</x>
-      <y>480</y>
+      <x>1290</x>
+      <y>510</y>
       <width>141</width>
       <height>41</height>
      </rect>
@@ -287,8 +287,8 @@
    <widget class="QPushButton" name="backButton">
     <property name="geometry">
      <rect>
-      <x>1030</x>
-      <y>520</y>
+      <x>1290</x>
+      <y>550</y>
       <width>141</width>
       <height>41</height>
      </rect>
@@ -302,7 +302,7 @@
      <rect>
       <x>30</x>
       <y>300</y>
-      <width>911</width>
+      <width>1221</width>
       <height>541</height>
      </rect>
     </property>
@@ -323,7 +323,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QListWidget" name="MITM_LOG">
+      <widget class="QListWidget" name="Log">
        <property name="font">
         <font>
          <pointsize>20</pointsize>
@@ -332,6 +332,19 @@
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QPushButton" name="bruteforce">
+    <property name="geometry">
+     <rect>
+      <x>1290</x>
+      <y>680</y>
+      <width>141</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Start brute-force</string>
+    </property>
    </widget>
    <zorder>message_image</zorder>
    <zorder>label</zorder>
@@ -347,13 +360,14 @@
    <zorder>pushButton</zorder>
    <zorder>backButton</zorder>
    <zorder>verticalLayoutWidget</zorder>
+   <zorder>bruteforce</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1271</width>
+     <width>1500</width>
      <height>26</height>
     </rect>
    </property>

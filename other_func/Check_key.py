@@ -39,10 +39,11 @@ def primefactorize(fac, n) :
         fac.add(n)
 
 def checkPrimitiveRoot(P,G):
+    flag = False
     s = set()
-    s1 = set()                   #tập chứa thừa số nguyên tố của P
+    s1 = list()                   #tập chứa thừa số nguyên tố của P
     if (isPrime(P) == False):
-        return -1
+        return("G is not the primitive root of P")
     phi = P - 1
     primefactorize(s, phi)                          #căn nguyên thủy: 
     for r in range(2, P):                           #đầu tiên phải tìm tập thừa số nguyên tố của n -> số thừa số này là m
@@ -52,6 +53,8 @@ def checkPrimitiveRoot(P,G):
                 break
         if (flag == False):
             s1.append(r)
-            return r
+            
     if G in s1:
         return("G is the primitive root of P, Public keys are satisfied to make the cryptosystem.")
+    else:
+        return(str(s1))
